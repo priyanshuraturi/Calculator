@@ -30,8 +30,6 @@ public class Calci extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -58,6 +56,8 @@ public class Calci extends javax.swing.JFrame {
         jButton14 = new javax.swing.JButton();
         jButton22 = new javax.swing.JButton();
         jButton27 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
 
         jButton8.setText("jButton8");
 
@@ -65,20 +65,9 @@ public class Calci extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                jTextArea1InputMethodTextChanged(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTextArea1);
-
         jPanel2.setLayout(new java.awt.GridLayout(5, 5, 1, 0));
 
-        jButton1.setText("jButton1");
+        jButton1.setText("+");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -86,10 +75,8 @@ public class Calci extends javax.swing.JFrame {
         });
         jPanel2.add(jButton1);
 
-        jButton6.setText("jButton6");
+        jButton6.setText("-");
         jPanel2.add(jButton6);
-
-        jButton2.setText("jButton2");
         jPanel2.add(jButton2);
 
         jButton3.setText("jButton3");
@@ -98,19 +85,39 @@ public class Calci extends javax.swing.JFrame {
         jButton7.setText("jButton7");
         jPanel2.add(jButton7);
 
-        jButton9.setText("jButton9");
+        jButton9.setText("/");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton9);
 
-        jButton4.setText("jButton4");
+        jButton4.setText("X");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton4);
 
-        jButton5.setText("jButton5");
+        jButton5.setText("1");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton5);
 
-        jButton20.setText("jButton20");
+        jButton20.setText("2");
         jPanel2.add(jButton20);
 
-        jButton18.setText("jButton18");
+        jButton18.setText("3");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton18);
 
         jButton16.setText("jButton16");
@@ -119,13 +126,13 @@ public class Calci extends javax.swing.JFrame {
         jButton21.setText("jButton21");
         jPanel2.add(jButton21);
 
-        jButton12.setText("jButton12");
+        jButton12.setText("4");
         jPanel2.add(jButton12);
 
-        jButton11.setText("jButton11");
+        jButton11.setText("5");
         jPanel2.add(jButton11);
 
-        jButton25.setText("jButton25");
+        jButton25.setText("6");
         jPanel2.add(jButton25);
 
         jButton24.setText("jButton24");
@@ -134,13 +141,18 @@ public class Calci extends javax.swing.JFrame {
         jButton10.setText("jButton10");
         jPanel2.add(jButton10);
 
-        jButton23.setText("jButton23");
+        jButton23.setText("7");
         jPanel2.add(jButton23);
 
-        jButton17.setText("jButton17");
+        jButton17.setText("8");
         jPanel2.add(jButton17);
 
-        jButton26.setText("jButton26");
+        jButton26.setText("9");
+        jButton26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton26ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton26);
 
         jButton13.setText("jButton13");
@@ -152,25 +164,29 @@ public class Calci extends javax.swing.JFrame {
         jButton14.setText("jButton14");
         jPanel2.add(jButton14);
 
-        jButton22.setText("jButton22");
+        jButton22.setText("0");
         jPanel2.add(jButton22);
 
         jButton27.setText("jButton27");
         jPanel2.add(jButton27);
 
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE)
+            .addComponent(jScrollPane2)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -191,9 +207,25 @@ public class Calci extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextArea1InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jTextArea1InputMethodTextChanged
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextArea1InputMethodTextChanged
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton26ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,7 +292,7 @@ public class Calci extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 }
