@@ -11,17 +11,16 @@ package javaapplication3;
  */
 public class Calci extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Calci
-     */
+   
     public Calci() {
         initComponents();
         
     }
-static String opreation1,opreation2;
+static String opreation1="",opreation2="";
+static String ress;
 static int count=0;
-static char opreant;
-static boolean ent;  
+static int opreant;  
+static float op1,op2,res;
 /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -88,6 +87,11 @@ static boolean ent;
         jPanel2.add(jButton2);
 
         jButton3.setText("Reset");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton3);
 
         jButton7.setText("Enter");
@@ -223,7 +227,7 @@ static boolean ent;
         });
         jPanel2.add(jButton27);
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 24));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -255,21 +259,21 @@ static boolean ent;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-jTextField1.setText(jTextField1.getText()+"+");  
-opreant='+';
+jTextField1.setText(jTextField1.getText()+" + ");  
+opreant=1;
 count++;
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-jTextField1.setText(jTextField1.getText()+"X");  
-opreant='x';
+jTextField1.setText(jTextField1.getText()+" X ");  
+opreant=2;
 count++;// TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-jTextField1.setText(jTextField1.getText()+"/");  
-opreant='/';
+jTextField1.setText(jTextField1.getText()+" / ");  
+opreant=3;
 count++;
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
@@ -356,8 +360,8 @@ if(count==0)
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-jTextField1.setText(jTextField1.getText()+"-");  
-        opreant='-';
+jTextField1.setText(jTextField1.getText()+" - ");  
+        opreant=4;
 count++;// TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -370,46 +374,49 @@ if(count==0)
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-      ent=true;
-        // TODO add your handling code here:
+     
+            op1=Float.parseFloat(opreation1);
+            op2=Float.parseFloat(opreation2);
+            /*
+            1 For Additon
+            2 For Multiplication
+            3 For Divide
+            4 For Subtract
+            */
+              if(opreant==1)
+                    res=op1+op2;
+              else if(opreant==4)
+                    res=op1-op2;
+              else if(opreant==2)
+                    res=op1*op2;
+              else if(opreant==3)
+                    res=op1/op2;
+               else
+                 res=-1;
+         
+           ress=String.valueOf(res);
+           jTextField1.setText(jTextField1.getText()+" = "+ress);
+    
+        
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        opreation1="";
+        opreation2="";
+        jTextField1.setText("");
+        count=0;
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Calci.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Calci.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Calci.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Calci.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Calci().setVisible(true);
-                
-            }
-        });
+       
+            
+        java.awt.EventQueue.invokeLater(new RunnableImpl());
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -440,6 +447,17 @@ if(count==0)
     private javax.swing.JButton jButton9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
+    private static javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    private static class RunnableImpl implements Runnable {
+
+        public RunnableImpl() {
+        }
+
+        @Override
+        public void run() {
+            new Calci().setVisible(true);
+        }
+    }
 }
