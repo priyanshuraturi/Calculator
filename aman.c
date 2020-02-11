@@ -1,5 +1,5 @@
 #include<stdio.h>
-main()
+int main()
 {
-  printf("priyanshu is aman's Father")
+  printf("Jai mata Dii")
 }
